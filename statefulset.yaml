@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: fixitapp-postgres
+spec:
+  serviceName: "fixitapp-postgres"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fixitapp-postgres
+  template:
+    metadata:
+      labels:
+        app: fixitapp-postgres
+    spec:
+      containers:
+      - name: db-fixit
+        image: postgres:17
+        ports:
+        - containerPort: 5435
+        env:
+        - name: POSTGRES_PASSWORD
+          value: "postgres" 
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_DB
+          value: "postgres"
+        volumeMounts:
+        - name: pgdata
+          mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: pgdata
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi

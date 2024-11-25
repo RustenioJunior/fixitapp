@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fixitapp-api-service
+spec:
+  selector:
+    app: fixitapp-api
+  ports:
+  - protocol: TCP
+    port: 8080 
+    targetPort: 8080 
+  type: LoadBalancer 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fixitapp-postgres
+spec:
+  selector:
+    app: fixitapp-postgres
+  ports:
+  - protocol: TCP
+    port: 5435
+    targetPort: 5432
+  clusterIP: None

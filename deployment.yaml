@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fixitapp-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fixitapp-api
+  template:
+    metadata:
+      labels:
+        app: fixitapp-api
+    spec:
+      containers:
+      - name: fixitapp
+        image: rusteniojr/fixit          
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ConnectionStrings__DefaultConnection
+          value: "Host=localhost;Database=postgres;Username=postgres;Password=postgres"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 500m
+            memory: 500Mi
