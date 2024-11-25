@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: fixitapp
-        image: rusteniojr/fixit          
+        image: rusteniojr/fixit:main          
         ports:
         - containerPort: 8080
         env:
         - name: ConnectionStrings__DefaultConnection
-          value: "Host=localhost;Database=postgres;Username=postgres;Password=postgres"
+          value: "Host=fixitapp-postgres;Database=postgres;Username=postgres;Password=postgres"
         resources:
           requests:
             cpu: 100m

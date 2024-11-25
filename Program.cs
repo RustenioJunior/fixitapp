@@ -15,7 +15,6 @@ var configuration = builder.Configuration;
 builder.Services.AddDbContext<UserContext>(options =>
     options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
