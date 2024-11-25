@@ -18,7 +18,7 @@ spec:
         ports:
         - containerPort: 8080
         env:
-        - name: ConnectionStrings__DefaultConnection
+        - name: ConnectionStrings_DefaultConnection
           value: "Host=fixitapp-postgres;Database=postgres;Username=postgres;Password=postgres"
         resources:
           requests:
