@@ -1,7 +1,6 @@
 services:
   app:
     container_name: fixitapp
-    image: rusteniojr/fixitapp:1.0
     build:
       context: .
       dockerfile: Dockerfile
