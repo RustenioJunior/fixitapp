@@ -30,4 +30,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run("http://0.0.0.0:80"); // Adicione esta linha para ouvir em todas as interfaces
