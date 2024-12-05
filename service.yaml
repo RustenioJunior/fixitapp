@@ -3,12 +3,14 @@ kind: Service
 metadata:
   name: fixitapp-api-service
 spec:
+  type: NodePort
   selector:
     app: fixitapp-api
   ports:
   - protocol: TCP
     port: 8080
     targetPort: 8080
+    nodePort: 30080 
 
 
 ---
@@ -17,10 +19,11 @@ kind: Service
 metadata:
   name: fixitapp-postgres
 spec:
+  type: NodePort
   selector:
     app: fixitapp-postgres
   ports:
   - protocol: TCP
     port: 5435
     targetPort: 5432
-  clusterIP: None
+    nodePort: 30035
