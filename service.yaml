@@ -7,10 +7,10 @@ spec:
   selector:
     app: fixitapp-api
   ports:
-  - protocol: TCP
-    port: 8080
-    targetPort: 8080
-    nodePort: 30080 
+    - protocol: TCP
+      port: 8081
+      targetPort: 80
+      nodePort: 30081
 
 
 ---
@@ -25,5 +25,5 @@ spec:
   ports:
   - protocol: TCP
     port: 5435
-    targetPort: 5432
+    targetPort: 5435
     nodePort: 30035
