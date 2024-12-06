@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: fixitapp-api-service
 spec:
+  type: NodePort
   selector:
     app: fixitapp-api
   ports:
@@ -15,6 +16,7 @@ kind: Service
 metadata:
   name: fixitapp-postgres
 spec:
+  type: NodePort
   selector:
     app: fixitapp-postgres
   ports:

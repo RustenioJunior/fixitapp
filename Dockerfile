@@ -18,4 +18,6 @@ WORKDIR /app
 
 COPY --from=build /app/out ./
 
+EXPOSE 80
+
 ENTRYPOINT ["dotnet", "fixit.dll"]
